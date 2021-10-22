@@ -19,19 +19,19 @@ export const Button = styled(Flex)<Props>`
   text-align: center;
   line-height: 1;
   word-break: keep-all;
-  color: ${switchProp(prop("color", "blue"), {
+  color: ${switchProp(prop("color", "red"), {
     blue: "white",
     red: "white",
     purple: "white",
     gray: "#444"
   })};
-  background: ${switchProp(prop("color", "blue"), {
+  background: ${switchProp(prop("color", "red"), {
     blue: "linear-gradient(to right, #42a5f5, #2979ff)",
-    red: "linear-gradient(to right, #ee3b3b, #e11c1c)",
+    red: "linear-gradient(270deg,#ff7f66,#de1444)",
     purple: "linear-gradient(to right, #7e57c2, #6200ea)",
     gray: "linear-gradient(to right, #e0e0e0, #bdbdbd)"
   })};
-  box-shadow: ${switchProp(prop("color", "blue"), {
+  box-shadow: ${switchProp(prop("color", "red"), {
     blue: "0 5px 6px rgba(66, 165, 245, 0.5)",
     red: "0 5px 6px rgba(168, 45, 45, 0.5)",
     purple: "0 5px 6px rgba(81, 45, 168, 0.5)",
@@ -46,7 +46,7 @@ export const Button = styled(Flex)<Props>`
   :hover,
   :focus {
     outline: none;
-    box-shadow: ${switchProp(prop("color", "blue"), {
+    box-shadow: ${switchProp(prop("color", "red"), {
       blue: "0 6px 15px rgba(66, 165, 245, 0.5)",
       red: "0 6px 15px rgba(168, 45, 45, 0.5)",
       purple: "0 6px 15px rgba(81, 45, 168, 0.5)",

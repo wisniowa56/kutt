@@ -26,10 +26,10 @@ const Homepage = () => {
   return (
     <AppWrapper>
       <Shortener />
-      {!isAuthenticated && <NeedToLogin />}
+      {/* {!isAuthenticated && <NeedToLogin />} */}
       {isAuthenticated && <LinksTable />}
-      <Features />
-      <Extensions />
+      {/* <Features /> */}
+      {/* <Extensions /> */}
       <Footer />
     </AppWrapper>
   );
