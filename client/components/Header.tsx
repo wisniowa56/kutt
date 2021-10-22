@@ -19,7 +19,7 @@ const Li = styled(Flex).attrs({ ml: [12, 24, 32] })`
     color: inherit;
 
     :hover {
-      color: #2196f3;
+      color: #DF1645;
     }
   }
 `;
@@ -60,8 +60,9 @@ const Header: FC = () => {
           href="/login"
           title={!DISALLOW_REGISTRATION ? "zaloguj / zarejestruj" : "zaloguj"}
           forButton
+          color="red"
         >
-          <Button height={[32, 40]}>
+          <Button height={[32, 40]} color="red">
             {!DISALLOW_REGISTRATION ? "Zaloguj / Zarejestruj" : "Zaloguj"}
           </Button>
         </ALink>

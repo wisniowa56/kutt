@@ -3,7 +3,7 @@ import { switchProp, prop, ifProp } from "styled-tools";
 import { Flex, BoxProps } from "reflexbox/styled-components";
 
 interface Props extends BoxProps {
-  color?: "purple" | "gray" | "blue" | "red";
+  color?: "red" | "purple" | "gray" | "blue";
   disabled?: boolean;
   icon?: string; // TODO: better typing
   isRound?: boolean;

@@ -11,21 +11,21 @@ interface Props extends BoxProps {
 }
 const ALink = styled(Box).attrs({
   as: "a"
-})<Props>`
+}) <Props>`
   cursor: pointer;
-  color: #2196f3;
+  color: #DF1645;
   border-bottom: 1px dotted transparent;
   text-decoration: none;
   transition: all 0.2s ease-out;
 
   ${ifProp(
-    { forButton: false },
-    css`
+  { forButton: false },
+  css`
       :hover {
-        border-bottom-color: #2196f3;
+        border-bottom-color: #DF1645;
       }
     `
-  )}
+)}
 `;
 
 ALink.defaultProps = {

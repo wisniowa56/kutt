@@ -94,7 +94,8 @@ class AppDocument extends Document<Props> {
             backgroundColor: Colors.Bg,
             font: '16px/1.45 "Nunito", sans-serif',
             overflowX: "hidden",
-            color: Colors.Text
+            color: Colors.Text,
+            minHeight: "100vh"
           }}
         >
           <Main />
