@@ -1,10 +1,10 @@
 {
-  "name": "Kutt",
-  "short_name": "Kutt",
+  "name": "Skracacz linków Wiśniowa SU",
+  "short_name": "Skracacz SU",
   "theme_color": "#f3f3f3",
   "background_color": "#f3f3f3",
   "display": "standalone",
-  "description": "Kutt.it is a free and open source URL shortener with custom domains and stats.",
+  "description": "Skracacz linków od SU ZSLiT na Wiśniowej, bazowany na Kutt",
   "Scope": "/",
   "start_url": "/",
   "icons": [
