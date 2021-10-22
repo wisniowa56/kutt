@@ -27,10 +27,10 @@ const Td = styled(Flex).attrs({ as: "td", py: 12, px: 3 })`
 `;
 
 const SettingsDomain: FC = () => {
-  const { saveDomain, deleteDomain } = useStoreActions(s => s.settings);
+  const { saveDomain, deleteDomain } = useStoreActions((s) => s.settings);
   const [domainToDelete, setDomainToDelete] = useState<Domain>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
-  const domains = useStoreState(s => s.settings.domains);
+  const domains = useStoreState((s) => s.settings.domains);
   const [message, setMessage] = useMessage(2000);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
@@ -39,7 +39,7 @@ const SettingsDomain: FC = () => {
     homepage: string;
   }>(null, { withIds: true });
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -59,7 +59,7 @@ const SettingsDomain: FC = () => {
 
   const onDelete = async () => {
     setDeleteLoading(true);
-    await deleteDomain(domainToDelete.id).catch(err =>
+    await deleteDomain(domainToDelete.id).catch((err) =>
       setMessage(errorMessage(err, "Couldn't delete the domain."))
     );
     setMessage("Domain has been deleted successfully.", "green");
@@ -78,7 +78,8 @@ const SettingsDomain: FC = () => {
         <b>example.com/url.</b>
       </Text>
       <Text mb={4}>
-        Ustaw rekord A domeny na <b>192.64.116.170</b>, a następnie wypełnij formularz poniżej:
+        Ustaw rekord A domeny na <b>192.64.116.170</b>, a następnie wypełnij
+        formularz poniżej:
       </Text>
       {domains.length > 0 && (
         <Table my={3} scrollWidth="550px">
@@ -90,7 +91,7 @@ const SettingsDomain: FC = () => {
             </tr>
           </thead>
           <tbody>
-            {domains.map(d => (
+            {domains.map((d) => (
               <tr key={d.address}>
                 <Td width={2 / 5}>{d.address}</Td>
                 <Td width={2 / 5}>

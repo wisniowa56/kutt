@@ -23,7 +23,7 @@ interface Props {
 }
 
 const StatsPage: NextPage<Props> = ({ id }) => {
-  const { isAuthenticated } = useStoreState(s => s.auth);
+  const { isAuthenticated } = useStoreState((s) => s.auth);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState<Record<string, any> | undefined>();
@@ -88,10 +88,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
               </H1>
               <Text fontSize={[13, 14]} textAlign="right">
                 {data.target.length > 80
-                  ? `${data.target
-                    .split("")
-                    .slice(0, 80)
-                    .join("")}...`
+                  ? `${data.target.split("").slice(0, 80).join("")}...`
                   : data.target}
               </Text>
             </Flex>

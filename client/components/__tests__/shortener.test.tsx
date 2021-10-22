@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { StoreProvider, createStore, thunk } from "easy-peasy";
-import userEvent from "@testing-library/user-event"
+import userEvent from "@testing-library/user-event";
 import { store } from "../../store";
 import Shortener from "../Shortener";
 

@@ -72,7 +72,7 @@ You need to have [Node.js](https://nodejs.org/), [PostgreSQL](https://www.postgr
 
 ### Docker
 
-Download the [`docker-compose.yml`](docker-compose.yml) and the [`.docker.env`](.docker.env)-file from the repository and configure the `.docker.env` ([see below](#configuration)). 
+Download the [`docker-compose.yml`](docker-compose.yml) and the [`.docker.env`](.docker.env)-file from the repository and configure the `.docker.env` ([see below](#configuration)).
 To execute Kutt you simply have to run `docker-compose up -d` command and then the app should be ready on port "3000".
 
 The `docker-compose.yml` uses the official kutt docker image available on [Docker Hub](https://hub.docker.com/r/kutt/kutt).
@@ -82,10 +82,10 @@ The `docker-compose.yml` uses the official kutt docker image available on [Docke
 For the minimal configuration the following settings have to be changed in the `.env`-file:
 
 - **DEFAULT_DOMAIN**: The domain of your kutt instance
-- **DB_**: The DB credentials (when you use docker-compose you can skip these)
+- **DB\_**: The DB credentials (when you use docker-compose you can skip these)
 - **ADMIN_EMAILS**: A comma-separated list of the administrator-accounts
-- **RECAPTCHA_**: Enter your credentials to use reCaptchas or delete this setting if you don't want to use it
-- **MAIL_**: Enter the SMTP-server's credentials (The experience shows SSL works better than STARTTLS; The mail config is required to easily create accounts, see [this comment](https://github.com/thedevs-network/kutt/issues/269#issuecomment-628604256) how it can be done manually)
+- **RECAPTCHA\_**: Enter your credentials to use reCaptchas or delete this setting if you don't want to use it
+- **MAIL\_**: Enter the SMTP-server's credentials (The experience shows SSL works better than STARTTLS; The mail config is required to easily create accounts, see [this comment](https://github.com/thedevs-network/kutt/issues/269#issuecomment-628604256) how it can be done manually)
 - **REPORT_EMAIL**: Kutt offers a form to report malicious links which are sent to this mail-address
 
 ## Browser Extensions
@@ -110,10 +110,11 @@ You can use Kutt as your default URL shortener in [ShareX](https://getsharex.com
 Download Kutt's official workflow for [Alfred](https://www.alfredapp.com/) app from [alfred-kutt](https://github.com/thedevs-network/alfred-kutt) repository.
 
 ## 3rd Party packages
+
 | Language   | Link                                                                              | Description                                        |
 | ---------- | --------------------------------------------------------------------------------- | -------------------------------------------------- |
 | C# (.NET)  | [KuttSharp](https://github.com/0xaryan/KuttSharp)                                 | .NET package for Kutt.it url shortener             |
-| C# (.NET)  | [Kutt.NET](https://github.com/AlphaNecron/Kutt.NET)                               | ✂️🔗 C# API Wrapper for Kutt
+| C# (.NET)  | [Kutt.NET](https://github.com/AlphaNecron/Kutt.NET)                               | ✂️🔗 C# API Wrapper for Kutt                       |
 | Python     | [kutt-cli](https://github.com/RealAmirali/kutt-cli)                               | Command-line client for Kutt written in Python     |
 | Ruby       | [kutt.rb](https://github.com/RealAmirali/kutt.rb)                                 | Kutt library written in Ruby                       |
 | Rust       | [urlshortener](https://github.com/vityafx/urlshortener-rs)                        | URL shortener library written in Rust              |
@@ -142,4 +143,3 @@ Pull requests are welcome. You'll probably find lots of improvements to be made.
 Open issues for feedback, requesting features, reporting bugs or discussing ideas.
 
 Special thanks to [Thomas](https://github.com/trgwii) and [Muthu](https://github.com/MKRhere). Logo design by [Muthu](https://github.com/MKRhere).
-

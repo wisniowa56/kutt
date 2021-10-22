@@ -32,13 +32,13 @@ const SettingsApi: FC = () => {
   const [copied, setCopied] = useCopy();
   const [message, setMessage] = useMessage(1500);
   const [loading, setLoading] = useState(false);
-  const apikey = useStoreState(s => s.settings.apikey);
-  const generateApiKey = useStoreActions(s => s.settings.generateApiKey);
+  const apikey = useStoreState((s) => s.settings.apikey);
+  const generateApiKey = useStoreActions((s) => s.settings.generateApiKey);
 
   const onSubmit = async () => {
     if (loading) return;
     setLoading(true);
-    await generateApiKey().catch(err => setMessage(errorMessage(err)));
+    await generateApiKey().catch((err) => setMessage(errorMessage(err)));
     setLoading(false);
   };
 
@@ -48,8 +48,9 @@ const SettingsApi: FC = () => {
         API
       </H2>
       <Text mb={4}>
-        W dodatku do witryny możesz użyć API by stworzyć skrócone linki. Jeśli nie znasz API, nie twórz klucza.
-        NIE udostępniaj klucza na swojej witrynie.{" "}
+        W dodatku do witryny możesz użyć API by stworzyć skrócone linki. Jeśli
+        nie znasz API, nie twórz klucza. NIE udostępniaj klucza na swojej
+        witrynie.{" "}
         <ALink href="https://docs.kutt.it" title="API Docs" target="_blank">
           Zobacz dokumentację API.
         </ALink>

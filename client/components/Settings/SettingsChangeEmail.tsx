@@ -22,7 +22,7 @@ const SettingsChangeEmail: FC = () => {
     withIds: true
   });
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
     setLoading(true);

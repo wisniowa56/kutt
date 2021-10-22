@@ -17,11 +17,11 @@ import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
 const ReportPage = () => {
-  const [formState, { text }] = useFormState<{ url: string; }>();
+  const [formState, { text }] = useFormState<{ url: string }>();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useMessage(5000);
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage();

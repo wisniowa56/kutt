@@ -62,27 +62,26 @@ interface Form {
 const defaultDomain = publicRuntimeConfig.DEFAULT_DOMAIN;
 
 const Shortener = () => {
-  const { isAuthenticated } = useStoreState(s => s.auth);
-  const domains = useStoreState(s => s.settings.domains);
-  const submit = useStoreActions(s => s.links.submit);
+  const { isAuthenticated } = useStoreState((s) => s.auth);
+  const domains = useStoreState((s) => s.settings.domains);
+  const submit = useStoreActions((s) => s.links.submit);
   const [link, setLink] = useState<Link | null>(null);
   const [message, setMessage] = useMessage(3000);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useCopy();
-  const [formState, { raw, password, text, select, label }] = useFormState<
-    Form
-  >(
-    { showAdvanced: false },
-    {
-      withIds: true,
-      onChange(e, stateValues, nextStateValues) {
-        if (stateValues.showAdvanced && !nextStateValues.showAdvanced) {
-          formState.clear();
-          formState.setField("target", stateValues.target);
+  const [formState, { raw, password, text, select, label }] =
+    useFormState<Form>(
+      { showAdvanced: false },
+      {
+        withIds: true,
+        onChange(e, stateValues, nextStateValues) {
+          if (stateValues.showAdvanced && !nextStateValues.showAdvanced) {
+            formState.clear();
+            formState.setField("target", stateValues.target);
+          }
         }
       }
-    }
-  );
+    );
 
   const submitLink = async (reCaptchaToken?: string) => {
     try {
@@ -90,14 +89,12 @@ const Shortener = () => {
       setLink(link);
       formState.clear();
     } catch (err) {
-      setMessage(
-        err?.response?.data?.error || "Nie udało się stworzyć linku."
-      );
+      setMessage(err?.response?.data?.error || "Nie udało się stworzyć linku.");
     }
     setLoading(false);
   };
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
     setCopied(false);
@@ -228,7 +225,7 @@ const Shortener = () => {
       <Checkbox
         {...raw({
           name: "showAdvanced",
-          onChange: e => {
+          onChange: (e) => {
             return !formState.values.showAdvanced;
           }
         })}
@@ -240,33 +237,35 @@ const Shortener = () => {
       {formState.values.showAdvanced && (
         <div>
           <Flex mt={4} flexDirection={["column", "row"]}>
-            {isAuthenticated && <Col mb={[3, 0]}>
-              <Text
-                as="label"
-                {...label("domain")}
-                fontSize={[14, 15]}
-                mb={2}
-                bold
-              >
-                Domena:
-              </Text>
-              <Select
-                {...select("domain")}
-                data-lpignore
-                pl={[3, 24]}
-                pr={[3, 24]}
-                fontSize={[14, 15]}
-                height={[40, 44]}
-                width={[1, 210, 240]}
-                options={[
-                  { key: defaultDomain, value: "" },
-                  ...domains.map(d => ({
-                    key: d.address,
-                    value: d.address
-                  }))
-                ]}
-              />
-            </Col>}
+            {isAuthenticated && (
+              <Col mb={[3, 0]}>
+                <Text
+                  as="label"
+                  {...label("domain")}
+                  fontSize={[14, 15]}
+                  mb={2}
+                  bold
+                >
+                  Domena:
+                </Text>
+                <Select
+                  {...select("domain")}
+                  data-lpignore
+                  pl={[3, 24]}
+                  pr={[3, 24]}
+                  fontSize={[14, 15]}
+                  height={[40, 44]}
+                  width={[1, 210, 240]}
+                  options={[
+                    { key: defaultDomain, value: "" },
+                    ...domains.map((d) => ({
+                      key: d.address,
+                      value: d.address
+                    }))
+                  ]}
+                />
+              </Col>
+            )}
             <Col mb={[3, 0]} ml={[0, 24]}>
               <Text
                 as="label"

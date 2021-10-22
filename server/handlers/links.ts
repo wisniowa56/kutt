@@ -83,7 +83,7 @@ export const create: Handler = async (req: CreateLinkReq, res) => {
 
   // Check if custom link already exists
   if (queries[4]) {
-    throw new CustomError("Custom URL is already in use.");
+    throw new CustomError("Własny URL już wykorzystywany.");
   }
 
   // Create new link
@@ -140,7 +140,7 @@ export const edit: Handler = async (req, res) => {
 
   // Check if custom link already exists
   if (queries[2]) {
-    throw new CustomError("Custom URL is already in use.");
+    throw new CustomError("Własny URL już wykorzystywany.");
   }
 
   // Update link

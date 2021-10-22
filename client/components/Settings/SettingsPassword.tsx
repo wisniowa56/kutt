@@ -15,12 +15,12 @@ import Icon from "../Icon";
 const SettingsPassword: FC = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useMessage(2000);
-  const [formState, { password, label }] = useFormState<{ password: string; }>(
+  const [formState, { password, label }] = useFormState<{ password: string }>(
     null,
     { withIds: true }
   );
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
     if (!formState.validity.password) {
@@ -61,7 +61,7 @@ const SettingsPassword: FC = () => {
         <TextInput
           {...password({
             name: "password",
-            validate: value => {
+            validate: (value) => {
               const val = value.trim();
               if (!val || val.length < 8) {
                 return "Hasło musi mieć przynajmniej 8 znaków.";

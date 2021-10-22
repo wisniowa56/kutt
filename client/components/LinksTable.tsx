@@ -33,13 +33,13 @@ const Tr = styled(Flex).attrs({ as: "tr", px: [12, 12, 2] })``;
 const Th = styled(Flex)``;
 Th.defaultProps = { as: "th", flexBasis: 0, py: [12, 12, 3], px: [12, 12, 3] };
 
-const Td = styled(Flex) <{ withFade?: boolean; }>`
+const Td = styled(Flex)<{ withFade?: boolean }>`
   position: relative;
   white-space: nowrap;
 
   ${ifProp(
-  "withFade",
-  css`
+    "withFade",
+    css`
       :after {
         content: "";
         position: absolute;
@@ -58,7 +58,7 @@ const Td = styled(Flex) <{ withFade?: boolean; }>`
         );
       }
     `
-)}
+  )}
 `;
 Td.defaultProps = {
   as: "td",
@@ -119,9 +119,9 @@ interface EditForm {
 }
 
 const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
-  const isAdmin = useStoreState(s => s.auth.isAdmin);
-  const ban = useStoreActions(s => s.links.ban);
-  const edit = useStoreActions(s => s.links.edit);
+  const isAdmin = useStoreState((s) => s.auth.isAdmin);
+  const ban = useStoreActions((s) => s.links.ban);
+  const edit = useStoreActions((s) => s.links.edit);
   const [banFormState, { checkbox }] = useFormState<BanForm>();
   const [editFormState, { text, label }] = useFormState<EditForm>(
     {
@@ -130,8 +130,8 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
       description: link.description,
       expire_in: link.expire_in
         ? ms(differenceInMilliseconds(new Date(link.expire_in), new Date()), {
-          long: true
-        })
+            long: true
+          })
         : ""
     },
     { withIds: true }
@@ -179,7 +179,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
   };
 
   const toggleEdit = () => {
-    setShowEdit(s => !s);
+    setShowEdit((s) => !s);
     if (showEdit) editFormState.reset();
     setEditMessage("");
   };
@@ -516,9 +516,9 @@ interface Form {
 }
 
 const LinksTable: FC = () => {
-  const isAdmin = useStoreState(s => s.auth.isAdmin);
-  const links = useStoreState(s => s.links);
-  const { get, remove } = useStoreActions(s => s.links);
+  const isAdmin = useStoreState((s) => s.auth.isAdmin);
+  const links = useStoreState((s) => s.links);
+  const { get, remove } = useStoreActions((s) => s.links);
   const [tableMessage, setTableMessage] = useState("No links to show.");
   const [deleteModal, setDeleteModal] = useState(-1);
   const [deleteLoading, setDeleteLoading] = useState(false);
@@ -532,12 +532,12 @@ const LinksTable: FC = () => {
   const linkToDelete = links.items[deleteModal];
 
   useEffect(() => {
-    get(options).catch(err =>
+    get(options).catch((err) =>
       setTableMessage(err?.response?.data?.error || "An error occurred.")
     );
   }, [options.limit, options.skip, options.all]);
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     get(options);
   };
@@ -566,7 +566,7 @@ const LinksTable: FC = () => {
       flexShrink={1}
     >
       <Flex as="ul" m={0} p={0} style={{ listStyle: "none" }}>
-        {["10", "25", "50"].map(c => (
+        {["10", "25", "50"].map((c) => (
           <Flex key={c} ml={[10, 12]}>
             <NavButton
               disabled={options.limit === c}

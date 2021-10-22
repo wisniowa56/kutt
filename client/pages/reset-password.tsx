@@ -23,11 +23,11 @@ interface Props {
 }
 
 const ResetPassword: NextPage<Props> = ({ token }) => {
-  const auth = useStoreState(s => s.auth);
-  const addAuth = useStoreActions(s => s.auth.add);
+  const auth = useStoreState((s) => s.auth);
+  const addAuth = useStoreActions((s) => s.auth.add);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useMessage();
-  const [formState, { email, label }] = useFormState<{ email: string; }>(null, {
+  const [formState, { email, label }] = useFormState<{ email: string }>(null, {
     withIds: true
   });
 
@@ -44,7 +44,7 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
     }
   }, []);
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!formState.validity.email) return;
 
@@ -69,7 +69,8 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
           Resetuj hasło
         </H2>
         <Text mb={4}>
-          Jeśli zapomniałeś hasła użyj tego formularza, aby otrzymać e-mail z linkiem do zmienienia go
+          Jeśli zapomniałeś hasła użyj tego formularza, aby otrzymać e-mail z
+          linkiem do zmienienia go
         </Text>
         <Text {...label("homepage")} as="label" mt={2} fontSize={[15, 16]} bold>
           Adres email
@@ -102,7 +103,7 @@ const ResetPassword: NextPage<Props> = ({ token }) => {
   );
 };
 
-ResetPassword.getInitialProps = async ctx => {
+ResetPassword.getInitialProps = async (ctx) => {
   return { token: ctx.req && (ctx.req as any).token };
 };
 

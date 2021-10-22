@@ -35,7 +35,7 @@ const Message = styled.p`
 `;
 
 const Verify: NextPage<Props> = ({ token }) => {
-  const addAuth = useStoreActions(s => s.auth.add);
+  const addAuth = useStoreActions((s) => s.auth.add);
 
   useEffect(() => {
     if (token) {

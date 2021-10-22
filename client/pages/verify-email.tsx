@@ -17,7 +17,7 @@ interface Props {
 }
 
 const VerifyEmail: NextPage<Props> = ({ token }) => {
-  const addAuth = useStoreActions(s => s.auth.add);
+  const addAuth = useStoreActions((s) => s.auth.add);
 
   useEffect(() => {
     if (token) {
@@ -48,7 +48,7 @@ const VerifyEmail: NextPage<Props> = ({ token }) => {
   );
 };
 
-VerifyEmail.getInitialProps = async ctx => {
+VerifyEmail.getInitialProps = async (ctx) => {
   return { token: (ctx?.req as any)?.token };
 };
 

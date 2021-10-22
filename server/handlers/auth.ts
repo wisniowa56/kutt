@@ -74,7 +74,7 @@ export const cooldown: Handler = async (req, res, next) => {
     const timeToWait =
       cooldownConfig - differenceInMinutes(new Date(), new Date(ip.created_at));
     throw new CustomError(
-      `Non-logged in users are limited. Wait ${timeToWait} minutes or log in.`,
+      `Nie zalogowani użytkownicy są limitowani. Czekaj ${timeToWait} by się zalogować.`,
       400
     );
   }
@@ -100,7 +100,7 @@ export const recaptcha: Handler = async (req, res, next) => {
   });
 
   if (!isReCaptchaValid.data.success) {
-    throw new CustomError("reCAPTCHA is not valid. Try again.", 401);
+    throw new CustomError("reCAPTCHA nieprawidłowa. Spróbuj ponownie.", 401);
   }
 
   return next();

@@ -21,12 +21,12 @@ const Wrapper = styled(Flex)`
   }
 `;
 
-const AppWrapper = ({ children }: { children: any; }) => {
-  const isAuthenticated = useStoreState(s => s.auth.isAuthenticated);
-  const logout = useStoreActions(s => s.auth.logout);
-  const fetched = useStoreState(s => s.settings.fetched);
-  const loading = useStoreState(s => s.loading.loading);
-  const getSettings = useStoreActions(s => s.settings.getSettings);
+const AppWrapper = ({ children }: { children: any }) => {
+  const isAuthenticated = useStoreState((s) => s.auth.isAuthenticated);
+  const logout = useStoreActions((s) => s.auth.logout);
+  const fetched = useStoreState((s) => s.settings.fetched);
+  const loading = useStoreState((s) => s.loading.loading);
+  const getSettings = useStoreActions((s) => s.settings.getSettings);
 
   const isVerifyEmailPage =
     typeof window !== "undefined" &&

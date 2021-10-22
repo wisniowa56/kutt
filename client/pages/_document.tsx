@@ -14,8 +14,8 @@ interface Props {
 class AppDocument extends Document<Props> {
   static getInitialProps({ renderPage }) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage(App => props =>
-      sheet.collectStyles(<App {...props} />)
+    const page = renderPage(
+      (App) => (props) => sheet.collectStyles(<App {...props} />)
     );
     const styleTags = sheet.getStyleElement();
     return { ...page, styleTags };
@@ -38,8 +38,16 @@ class AppDocument extends Document<Props> {
             href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
             rel="stylesheet"
           />
-          <link rel="icon" sizes="196x196" href="/images/icons/logo_196px.png" />
-          <link rel="icon" sizes="128x128" href="/images/icons/logo_128px.png" />
+          <link
+            rel="icon"
+            sizes="196x196"
+            href="/images/icons/logo_196px.png"
+          />
+          <link
+            rel="icon"
+            sizes="128x128"
+            href="/images/icons/logo_128px.png"
+          />
           <link rel="apple-touch-icon" href="/images/icons/logo_196px.png" />
           <link rel="mask-icon" href="/images/icon.svg" color="blue" />
           <link rel="manifest" href="manifest.webmanifest" />

@@ -11,7 +11,7 @@ import Text from "./Text";
 const { publicRuntimeConfig } = getConfig();
 
 const Footer: FC = () => {
-  const { isAuthenticated } = useStoreState(s => s.auth);
+  const { isAuthenticated } = useStoreState((s) => s.auth);
 
   useEffect(() => {
     showRecaptcha();

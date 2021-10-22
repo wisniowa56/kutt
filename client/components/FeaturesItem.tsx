@@ -33,7 +33,7 @@ const IconBox = styled(Flex).attrs({
 })`
   border-radius: 100%;
   box-sizing: border-box;
-  background-color: #DF1645;
+  background-color: #df1645;
 `;
 
 const Title = styled.h3`

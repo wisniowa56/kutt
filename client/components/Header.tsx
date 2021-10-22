@@ -19,7 +19,7 @@ const Li = styled(Flex).attrs({ ml: [12, 24, 32] })`
     color: inherit;
 
     :hover {
-      color: #DF1645;
+      color: #df1645;
     }
   }
 `;
@@ -50,7 +50,7 @@ const LogoImage = styled.div`
 `;
 
 const Header: FC = () => {
-  const { isAuthenticated } = useStoreState(s => s.auth);
+  const { isAuthenticated } = useStoreState((s) => s.auth);
   const isMobile = useMedia({ maxWidth: 640 });
 
   const login = !isAuthenticated && (
@@ -106,7 +106,7 @@ const Header: FC = () => {
           <a
             href="/"
             title="Homepage"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               if (window.location.pathname !== "/") Router.push("/");
             }}

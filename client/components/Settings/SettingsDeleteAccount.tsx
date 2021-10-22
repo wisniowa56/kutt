@@ -20,20 +20,20 @@ const SettingsDeleteAccount: FC = () => {
   const [message, setMessage] = useMessage(1500);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
-  const [formState, { password, label }] = useFormState<{ accpass: string; }>(
+  const [formState, { password, label }] = useFormState<{ accpass: string }>(
     null,
     {
       withIds: true
     }
   );
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
     setModal(true);
   };
 
-  const onDelete = async e => {
+  const onDelete = async (e) => {
     e.preventDefault();
     if (loading) return;
     setLoading(true);
@@ -55,9 +55,7 @@ const SettingsDeleteAccount: FC = () => {
       <H2 mb={4} bold>
         Usuń konto
       </H2>
-      <Text mb={4}>
-        Usuń konto z {publicRuntimeConfig.SITE_NAME}.
-      </Text>
+      <Text mb={4}>Usuń konto z {publicRuntimeConfig.SITE_NAME}.</Text>
       <Text
         {...label("password")}
         as="label"
