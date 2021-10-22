@@ -147,7 +147,7 @@ const LoginPage = () => {
                 />
                 Log in
               </Button>
-              {/* {!DISALLOW_REGISTRATION && (
+              {!DISALLOW_REGISTRATION && (
                 <Button
                   flex="1 1 auto"
                   ml={["8px", 16]}
@@ -162,7 +162,7 @@ const LoginPage = () => {
                   />
                   Sign up
                 </Button>
-              )} */}
+              )}
             </Flex>
             <Link href="/reset-password">
               <ALink
