@@ -112,7 +112,7 @@ const Header: FC = () => {
             }}
           >
             <img src="/images/logo.png" alt="" />
-            Skracacz Linków SU
+            {publicRuntimeConfig.SITE_NAME}
           </a>
         </LogoImage>
         {!isMobile && (
