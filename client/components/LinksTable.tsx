@@ -33,13 +33,13 @@ const Tr = styled(Flex).attrs({ as: "tr", px: [12, 12, 2] })``;
 const Th = styled(Flex)``;
 Th.defaultProps = { as: "th", flexBasis: 0, py: [12, 12, 3], px: [12, 12, 3] };
 
-const Td = styled(Flex)<{ withFade?: boolean }>`
+const Td = styled(Flex) <{ withFade?: boolean; }>`
   position: relative;
   white-space: nowrap;
 
   ${ifProp(
-    "withFade",
-    css`
+  "withFade",
+  css`
       :after {
         content: "";
         position: absolute;
@@ -58,7 +58,7 @@ const Td = styled(Flex)<{ withFade?: boolean }>`
         );
       }
     `
-  )}
+)}
 `;
 Td.defaultProps = {
   as: "td",
@@ -130,8 +130,8 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
       description: link.description,
       expire_in: link.expire_in
         ? ms(differenceInMilliseconds(new Date(link.expire_in), new Date()), {
-            long: true
-          })
+          long: true
+        })
         : ""
     },
     { withIds: true }
@@ -201,7 +201,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           <Text>{formatDistanceToNow(new Date(link.created_at))} ago</Text>
           {link.expire_in && (
             <Text fontSize={[13, 14]} color="#888">
-              Expires in{" "}
+              Wygasa za{" "}
               {ms(
                 differenceInMilliseconds(new Date(link.expire_in), new Date()),
                 {
@@ -249,7 +249,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           {link.password && (
             <>
               <Tooltip id={`${index}-tooltip-password`}>
-                Password protected
+                Chroniony hasłem
               </Tooltip>
               <Action
                 as="span"
@@ -264,7 +264,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
           )}
           {link.banned && (
             <>
-              <Tooltip id={`${index}-tooltip-banned`}>Banned</Tooltip>
+              <Tooltip id={`${index}-tooltip-banned`}>Zbanowany</Tooltip>
               <Action
                 as="span"
                 data-tip
@@ -339,12 +339,12 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Target:
+                  Adres docelowy:
                 </Text>
                 <Flex as="form">
                   <TextInput
                     {...text("target")}
-                    placeholder="Target..."
+                    placeholder="Adres docelowy..."
                     placeholderSize={[13, 14]}
                     fontSize={[14, 15]}
                     height={[40, 44]}
@@ -368,7 +368,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                 <Flex as="form">
                   <TextInput
                     {...text("address")}
-                    placeholder="Custom address..."
+                    placeholder="Własy adres..."
                     placeholderSize={[13, 14]}
                     fontSize={[14, 15]}
                     height={[40, 44]}
@@ -389,12 +389,12 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Description:
+                  Opis:
                 </Text>
                 <Flex as="form">
                   <TextInput
                     {...text("description")}
-                    placeholder="description..."
+                    placeholder="opis..."
                     placeholderSize={[13, 14]}
                     fontSize={[14, 15]}
                     height={[40, 44]}
@@ -413,7 +413,7 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
                   fontSize={[14, 15]}
                   bold
                 >
-                  Expire in:
+                  Wygasa za:
                 </Text>
                 <Flex as="form">
                   <TextInput
@@ -469,10 +469,10 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
       >
         <>
           <H2 mb={24} textAlign="center" bold>
-            Ban link?
+            Zbanuj link?
           </H2>
           <Text mb={24} textAlign="center">
-            Are you sure do you want to ban the link{" "}
+            Czy jesteś pewien że chcesz zbanować link{" "}
             <Span bold>"{removeProtocol(link.link)}"</Span>?
           </Text>
           <RowCenter>
@@ -493,11 +493,11 @@ const Row: FC<RowProps> = ({ index, link, setDeleteModal }) => {
             ) : (
               <>
                 <Button color="gray" mr={3} onClick={() => setBanModal(false)}>
-                  Cancel
+                  Anuluj
                 </Button>
                 <Button color="red" ml={3} onClick={onBan}>
                   <Icon name="stop" stroke="white" mr={2} />
-                  Ban
+                  Zbanuj
                 </Button>
               </>
             )}
@@ -611,7 +611,7 @@ const LinksTable: FC = () => {
   return (
     <Col width={1200} maxWidth="95%" margin="40px 0 120px" my={6}>
       <H2 mb={3} light>
-        Recent shortened links.
+        Niedawne skrócone linki.
       </H2>
       <Table scrollWidth="800px">
         <thead>
@@ -620,7 +620,7 @@ const LinksTable: FC = () => {
               <Flex as="form" onSubmit={onSubmit}>
                 <TextInput
                   {...text("search")}
-                  placeholder="Search..."
+                  placeholder="Szukaj..."
                   height={[30, 32]}
                   placeholderSize={[13, 13, 13, 13]}
                   fontSize={[14]}
@@ -647,10 +647,10 @@ const LinksTable: FC = () => {
             {Nav}
           </Tr>
           <Tr>
-            <Th {...ogLinkFlex}>Original URL</Th>
-            <Th {...createdFlex}>Created</Th>
-            <Th {...shortLinkFlex}>Short URL</Th>
-            <Th {...viewsFlex}>Views</Th>
+            <Th {...ogLinkFlex}>Oryginalny URL</Th>
+            <Th {...createdFlex}>Stworzony</Th>
+            <Th {...shortLinkFlex}>Skrócony URL</Th>
+            <Th {...viewsFlex}>Wyświetlenia</Th>
             <Th {...actionsFlex}></Th>
           </Tr>
         </thead>
@@ -659,7 +659,7 @@ const LinksTable: FC = () => {
             <Tr width={1} justifyContent="center">
               <Td flex="1 1 auto" justifyContent="center">
                 <Text fontSize={18} light>
-                  {links.loading ? "Loading links..." : tableMessage}
+                  {links.loading ? "Ładowanie linków..." : tableMessage}
                 </Text>
               </Td>
             </Tr>
@@ -688,10 +688,10 @@ const LinksTable: FC = () => {
         {linkToDelete && (
           <>
             <H2 mb={24} textAlign="center" bold>
-              Delete link?
+              Usuń link?
             </H2>
             <Text textAlign="center">
-              Are you sure do you want to delete the link{" "}
+              Czy jesteś pewien że chcesz usunąć link{" "}
               <Span bold>"{removeProtocol(linkToDelete.link)}"</Span>?
             </Text>
             <Flex justifyContent="center" mt={44}>
@@ -710,11 +710,11 @@ const LinksTable: FC = () => {
                     mr={3}
                     onClick={() => setDeleteModal(-1)}
                   >
-                    Cancel
+                    Anuluj
                   </Button>
                   <Button color="red" ml={3} onClick={onDelete}>
                     <Icon name="trash" stroke="white" mr={2} />
-                    Delete
+                    Usuń
                   </Button>
                 </>
               )}

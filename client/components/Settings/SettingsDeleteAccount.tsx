@@ -20,7 +20,7 @@ const SettingsDeleteAccount: FC = () => {
   const [message, setMessage] = useMessage(1500);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
-  const [formState, { password, label }] = useFormState<{ accpass: string }>(
+  const [formState, { password, label }] = useFormState<{ accpass: string; }>(
     null,
     {
       withIds: true
@@ -53,10 +53,10 @@ const SettingsDeleteAccount: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Delete account
+        Usuń konto
       </H2>
       <Text mb={4}>
-        Delete your account from {publicRuntimeConfig.SITE_NAME}.
+        Usuń konto z {publicRuntimeConfig.SITE_NAME}.
       </Text>
       <Text
         {...label("password")}
@@ -65,7 +65,7 @@ const SettingsDeleteAccount: FC = () => {
         fontSize={[15, 16]}
         bold
       >
-        Password:
+        Hasło:
       </Text>
       <RowCenterV as="form" onSubmit={onSubmit}>
         <TextInput
@@ -76,7 +76,7 @@ const SettingsDeleteAccount: FC = () => {
         />
         <Button color="red" type="submit" disabled={loading}>
           <Icon name={loading ? "spinner" : "trash"} mr={2} stroke="white" />
-          Delete
+          Usuń
         </Button>
       </RowCenterV>
       <Modal
@@ -86,11 +86,11 @@ const SettingsDeleteAccount: FC = () => {
       >
         <>
           <H2 mb={24} textAlign="center" bold>
-            Delete account?
+            Usunąć konto?
           </H2>
           <Text textAlign="center">
-            All of your data including your <Span bold>LINKS</Span> and{" "}
-            <Span bold>STATS</Span> will be deleted.
+            Wszystkie twoje dane, wliczając <Span bold>LINKI</Span> i{" "}
+            <Span bold>STATYSTYKI</Span> zostaną usunięte.
           </Text>
           <RowCenterH mt={44}>
             {loading ? (
@@ -104,11 +104,11 @@ const SettingsDeleteAccount: FC = () => {
             ) : (
               <>
                 <Button color="gray" mr={3} onClick={() => setModal(false)}>
-                  Cancel
+                  Anuluj
                 </Button>
                 <Button color="red" ml={3} onClick={onDelete}>
                   <Icon name="trash" stroke="white" mr={2} />
-                  Delete
+                  Usuń
                 </Button>
               </>
             )}

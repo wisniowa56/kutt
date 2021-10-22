@@ -58,11 +58,11 @@ const Header: FC = () => {
       <Link href="/login">
         <ALink
           href="/login"
-          title={!DISALLOW_REGISTRATION ? "login / signup" : "login"}
+          title={!DISALLOW_REGISTRATION ? "zaloguj / zarejestruj" : "zaloguj"}
           forButton
         >
           <Button height={[32, 40]}>
-            {!DISALLOW_REGISTRATION ? "Log in / Sign up" : "Log in"}
+            {!DISALLOW_REGISTRATION ? "Zaloguj / Zarejestruj" : "Zaloguj"}
           </Button>
         </ALink>
       </Link>
@@ -71,8 +71,8 @@ const Header: FC = () => {
   const logout = isAuthenticated && (
     <Li>
       <Link href="/logout">
-        <ALink href="/logout" title="logout" fontSize={[14, 16]}>
-          Log out
+        <ALink href="/logout" title="wyloguj" fontSize={[14, 16]}>
+          Wyloguj
         </ALink>
       </Link>
     </Li>
@@ -80,8 +80,8 @@ const Header: FC = () => {
   const settings = isAuthenticated && (
     <Li>
       <Link href="/settings">
-        <ALink href="/settings" title="Settings" forButton>
-          <Button height={[32, 40]}>Settings</Button>
+        <ALink href="/settings" title="Ustawienia" forButton>
+          <Button height={[32, 40]}>Ustawienia</Button>
         </ALink>
       </Link>
     </Li>
@@ -110,7 +110,7 @@ const Header: FC = () => {
               if (window.location.pathname !== "/") Router.push("/");
             }}
           >
-            <img src="/images/logo.svg" alt="" />
+            <img src="/images/logo.png" alt="" />
             {publicRuntimeConfig.SITE_NAME}
           </a>
         </LogoImage>
@@ -138,7 +138,7 @@ const Header: FC = () => {
             <Li>
               <Link href="/report">
                 <ALink href="/report" title="Report abuse" fontSize={[14, 16]}>
-                  Report
+                  Zgłoś
                 </ALink>
               </Link>
             </Li>
@@ -156,7 +156,7 @@ const Header: FC = () => {
           <Flex display={["flex", "none"]}>
             <Link href="/report">
               <ALink href="/report" title="Report" fontSize={[14, 16]}>
-                Report
+                Zgłoś
               </ALink>
             </Link>
           </Flex>

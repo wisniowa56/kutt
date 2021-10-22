@@ -70,23 +70,22 @@ const SettingsDomain: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Custom domain
+        Własna domena
       </H2>
       <Text mb={3}>
-        You can set a custom domain for your short URLs, so instead of{" "}
-        <b>{publicRuntimeConfig.DEFAULT_DOMAIN}/shorturl</b> you can have{" "}
-        <b>example.com/shorturl.</b>
+        Możesz ustawić własną domenę do linków, by zamiast zamiast{" "}
+        <b>{publicRuntimeConfig.DEFAULT_DOMAIN}/url</b> mieć{" "}
+        <b>example.com/url.</b>
       </Text>
       <Text mb={4}>
-        Point your domain A record to <b>192.64.116.170</b> then add the domain
-        via form below:
+        Ustaw rekord A domeny na <b>192.64.116.170</b>, a następnie wypełnij formularz poniżej:
       </Text>
       {domains.length > 0 && (
         <Table my={3} scrollWidth="550px">
           <thead>
             <tr>
-              <Th width={2 / 5}>Domain</Th>
-              <Th width={2 / 5}>Homepage</Th>
+              <Th width={2 / 5}>Domena</Th>
+              <Th width={2 / 5}>Strona główna</Th>
               <Th width={1 / 5}></Th>
             </tr>
           </thead>
@@ -135,7 +134,7 @@ const SettingsDomain: FC = () => {
               fontSize={[15, 16]}
               bold
             >
-              Domain:
+              Domena:
             </Text>
             <TextInput
               {...text("address")}
@@ -152,11 +151,11 @@ const SettingsDomain: FC = () => {
               fontSize={[15, 16]}
               bold
             >
-              Homepage (optional):
+              Strona główna (opcjonalna):
             </Text>
             <TextInput
               {...text("homepage")}
-              placeholder="Homepage URL"
+              placeholder="URL Strony Głównej"
               flex="1 1 auto"
               maxWidth="240px"
             />
@@ -164,16 +163,16 @@ const SettingsDomain: FC = () => {
         </Flex>
         <Button type="submit" color="purple" mt={[24, 3]} disabled={loading}>
           <Icon name={loading ? "spinner" : "plus"} mr={2} stroke="white" />
-          {loading ? "Setting..." : "Set domain"}
+          {loading ? "Ustawianie..." : "Ustaw domenę"}
         </Button>
       </Col>
       <Text color={message.color}>{message.text}</Text>
       <Modal id="delete-custom-domain" show={modal} closeHandler={closeModal}>
         <H2 mb={24} textAlign="center" bold>
-          Delete domain?
+          Usuń domenę?
         </H2>
         <Text textAlign="center">
-          Are you sure do you want to delete the domain{" "}
+          Czy jesteś pewien że chcesz usunąć domenę{" "}
           <Span bold>"{domainToDelete && domainToDelete.address}"</Span>?
         </Text>
         <Flex justifyContent="center" mt={44}>
@@ -184,11 +183,11 @@ const SettingsDomain: FC = () => {
           ) : (
             <>
               <Button color="gray" mr={3} onClick={closeModal}>
-                Cancel
+                Anuluj
               </Button>
               <Button color="red" ml={3} onClick={onDelete}>
                 <Icon name="trash" stroke="white" mr={2} />
-                Delete
+                Usuń
               </Button>
             </>
           )}

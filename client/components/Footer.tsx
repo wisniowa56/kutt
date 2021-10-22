@@ -26,7 +26,7 @@ const Footer: FC = () => {
     >
       {!isAuthenticated && <ReCaptcha />}
       <Text fontSize={[12, 13]} py={2}>
-        Made with love by{" "}
+        Stworzone przez{" "}
         <ALink href="//thedevs.network/" title="The Devs">
           The Devs
         </ALink>
@@ -40,11 +40,11 @@ const Footer: FC = () => {
         </ALink>
         {" | "}
         <ALink href="/terms" title="Terms of Service">
-          Terms of Service
+          Warunki
         </ALink>
         {" | "}
-        <ALink href="/report" title="Report abuse">
-          Report Abuse
+        <ALink href="/report" title="Zgłoś link">
+          Zgłoś link
         </ALink>
         {publicRuntimeConfig.CONTACT_EMAIL && (
           <>

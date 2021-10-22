@@ -32,16 +32,15 @@ class AppDocument extends Document<Props> {
           />
           <meta
             name="description"
-            content={`${publicRuntimeConfig.SITE_NAME} is a free and open source URL shortener with custom domains and stats.`}
+            content={`${publicRuntimeConfig.SITE_NAME} jest darmowym skracaczem linków SU na Wiśniowej.`}
           />
           <link
             href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
             rel="stylesheet"
           />
-          <link rel="icon" sizes="196x196" href="/images/favicon-196x196.png" />
-          <link rel="icon" sizes="32x32" href="/images/favicon-32x32.png" />
-          <link rel="icon" sizes="16x16" href="/images/favicon-16x16.png" />
-          <link rel="apple-touch-icon" href="/images/favicon-196x196.png" />
+          <link rel="icon" sizes="196x196" href="/images/icons/logo_196px.png" />
+          <link rel="icon" sizes="128x128" href="/images/icons/logo_128px.png" />
+          <link rel="apple-touch-icon" href="/images/icons/logo_196px.png" />
           <link rel="mask-icon" href="/images/icon.svg" color="blue" />
           <link rel="manifest" href="manifest.webmanifest" />
           <meta name="theme-color" content="#f3f3f3" />
@@ -59,7 +58,7 @@ class AppDocument extends Document<Props> {
           />
           <meta
             property="og:description"
-            content="Free & Open Source Modern URL Shortener"
+            content="Skracacz linków Wiśniowa SU"
           />
           <meta
             name="twitter:url"
@@ -68,7 +67,7 @@ class AppDocument extends Document<Props> {
           <meta name="twitter:title" content={publicRuntimeConfig.SITE_NAME} />
           <meta
             name="twitter:description"
-            content="Free & Open Source Modern URL Shortener"
+            content="Skracacz linków Wiśniowa SU"
           />
           <meta
             name="twitter:image"

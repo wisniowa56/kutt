@@ -17,7 +17,7 @@ import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
 const ReportPage = () => {
-  const [formState, { text }] = useFormState<{ url: string }>();
+  const [formState, { text }] = useFormState<{ url: string; }>();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useMessage(5000);
 
@@ -40,17 +40,16 @@ const ReportPage = () => {
     <AppWrapper>
       <Col width={600} maxWidth="97%" alignItems="flex-start">
         <H2 my={3} bold>
-          Report abuse
+          Zgłoś link
         </H2>
         <Text mb={3}>
-          Report abuses, malware and phishing links to the below email address
-          or use the form. We will take actions shortly.
+          Zgłoś naruszenia, malware i phishing na podany adres email:
         </Text>
         <Text mb={4}>
           {(publicRuntimeConfig.REPORT_EMAIL || "").replace("@", "[at]")}
         </Text>
         <Text mb={3}>
-          <Span bold>URL containing malware/scam:</Span>
+          <Span bold>URL prowadzący do malware/oszustwa:</Span>
         </Text>
         <Flex
           as="form"
@@ -70,7 +69,7 @@ const ReportPage = () => {
           />
           <Button type="submit" flex="0 0 auto" height={[40, 44]} mt={[3, 0]}>
             {loading && <Icon name={"spinner"} stroke="white" mr={2} />}
-            Send report
+            Wyślij zgłoszenie
           </Button>
         </Flex>
         <Text fontSize={14} mt={3} color={message.color}>

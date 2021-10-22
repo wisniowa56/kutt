@@ -91,7 +91,7 @@ const Shortener = () => {
       formState.clear();
     } catch (err) {
       setMessage(
-        err?.response?.data?.error || "Couldn't create the short link."
+        err?.response?.data?.error || "Nie udało się stworzyć linku."
       );
     }
     setLoading(false);
@@ -201,7 +201,7 @@ const Shortener = () => {
       >
         <TextInput
           {...text("target")}
-          placeholder="Paste your long URL"
+          placeholder="Wklej swój długi URL"
           placeholderSize={[16, 17, 18]}
           fontSize={[18, 20, 22]}
           aria-label="target"
@@ -235,7 +235,7 @@ const Shortener = () => {
           onChange: e => {
             if (!isAuthenticated) {
               setMessage(
-                "You need to log in or sign up to use advanced options."
+                "Musisz się zalogować by uzyskać dostęp do zaawansowanych opcji."
               );
               return false;
             }
@@ -243,7 +243,7 @@ const Shortener = () => {
           }
         })}
         checked={formState.values.showAdvanced}
-        label="Show advanced options"
+        label="Pokaż zaawansowane opcje"
         mt={[3, 24]}
         alignSelf="flex-start"
       />
@@ -258,7 +258,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Domain:
+                Domena:
               </Text>
               <Select
                 {...select("domain")}
@@ -289,7 +289,7 @@ const Shortener = () => {
               </Text>
               <TextInput
                 {...text("customurl")}
-                placeholder="Custom address..."
+                placeholder="Własny adres..."
                 autocomplete="off"
                 data-lpignore
                 pl={[3, 24]}
@@ -308,11 +308,11 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Password:
+                Hasło:
               </Text>
               <TextInput
                 {...password("password")}
-                placeholder="Password..."
+                placeholder="Hasło..."
                 autocomplete="off"
                 data-lpignore
                 pl={[3, 24]}
@@ -333,7 +333,7 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Expire in:
+                Wygasa za:
               </Text>
               <TextInput
                 {...text("expire_in")}
@@ -356,11 +356,11 @@ const Shortener = () => {
                 mb={2}
                 bold
               >
-                Description:
+                Opis:
               </Text>
               <TextInput
                 {...text("description")}
-                placeholder="Description"
+                placeholder="Opis"
                 data-lpignore
                 pl={[3, 24]}
                 pr={[3, 24]}

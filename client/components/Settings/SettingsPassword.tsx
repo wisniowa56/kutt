@@ -15,7 +15,7 @@ import Icon from "../Icon";
 const SettingsPassword: FC = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useMessage(2000);
-  const [formState, { password, label }] = useFormState<{ password: string }>(
+  const [formState, { password, label }] = useFormState<{ password: string; }>(
     null,
     { withIds: true }
   );
@@ -45,9 +45,9 @@ const SettingsPassword: FC = () => {
   return (
     <Col alignItems="flex-start" maxWidth="100%">
       <H2 mb={4} bold>
-        Change password
+        Zmień hasło
       </H2>
-      <Text mb={4}>Enter a new password to change your current password.</Text>
+      <Text mb={4}>Wprowadź nowe hasło.</Text>
       <Text
         {...label("password")}
         as="label"
@@ -55,7 +55,7 @@ const SettingsPassword: FC = () => {
         fontSize={[15, 16]}
         bold
       >
-        New password:
+        Nowe hasło:
       </Text>
       <Flex as="form" onSubmit={onSubmit}>
         <TextInput
@@ -64,19 +64,19 @@ const SettingsPassword: FC = () => {
             validate: value => {
               const val = value.trim();
               if (!val || val.length < 8) {
-                return "Password must be at least 8 chars.";
+                return "Hasło musi mieć przynajmniej 8 znaków.";
               }
             }
           })}
           autocomplete="off"
-          placeholder="New password..."
+          placeholder="Nowe hasło..."
           width={[1, 2 / 3]}
           mr={3}
           required
         />
         <Button type="submit" disabled={loading}>
           <Icon name={loading ? "spinner" : "refresh"} mr={2} stroke="white" />
-          {loading ? "Updating..." : "Update"}
+          {loading ? "Aktualizowane..." : "Zaktualizuj"}
         </Button>
       </Flex>
       <Text color={message.color} mt={3} fontSize={15}>

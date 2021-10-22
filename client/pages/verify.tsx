@@ -51,13 +51,13 @@ const Verify: NextPage<Props> = ({ token }) => {
         <Col alignItems="center">
           <MessageWrapper>
             <Icon name="check" size={32} mr={3} stroke={Colors.CheckIcon} />
-            <Message>Your account has been verified successfully!</Message>
+            <Message>Twoje konto zostało zweryfikowane!</Message>
           </MessageWrapper>
           <Link href="/">
             <ALink href="/" forButton>
               <Button>
                 <Icon name="arrowLeft" stroke="white" mr={2} />
-                Back to homepage
+                Wróć do storny głównej
               </Button>
             </ALink>
           </Link>
@@ -66,13 +66,13 @@ const Verify: NextPage<Props> = ({ token }) => {
         <Col alignItems="center">
           <MessageWrapper>
             <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-            <Message>Invalid verification.</Message>
+            <Message>Nieudana weryfikacja.</Message>
           </MessageWrapper>
           <Link href="/login">
             <ALink href="/login" forButton>
               <Button color="purple">
                 <Icon name="arrowLeft" stroke="white" mr={2} />
-                Back to signup
+                Powrót do rejestracji
               </Button>
             </ALink>
           </Link>

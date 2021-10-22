@@ -52,7 +52,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
     errorMessage = (
       <Flex mt={3}>
         <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-        <H2>You need to login to view stats.</H2>
+        <H2>Musisz się zalogować by widzieć statystyki.</H2>
       </Flex>
     );
   }
@@ -61,7 +61,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
     errorMessage = (
       <Flex mt={3}>
         <Icon name="x" size={32} mr={3} stroke={Colors.TrashIcon} />
-        <H2>Couldn't get stats.</H2>
+        <H2>Nie udało się pobrać statystyk.</H2>
       </Flex>
     );
   }
@@ -89,9 +89,9 @@ const StatsPage: NextPage<Props> = ({ id }) => {
               <Text fontSize={[13, 14]} textAlign="right">
                 {data.target.length > 80
                   ? `${data.target
-                      .split("")
-                      .slice(0, 80)
-                      .join("")}...`
+                    .split("")
+                    .slice(0, 80)
+                    .join("")}...`
                   : data.target}
               </Text>
             </Flex>
@@ -111,7 +111,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
                 px={[3, 4]}
               >
                 <H4>
-                  Total clicks: <Span bold>{data.total}</Span>
+                  Łączna ilość kliknięć: <Span bold>{data.total}</Span>
                 </H4>
                 <Flex>
                   {[
@@ -141,10 +141,10 @@ const StatsPage: NextPage<Props> = ({ id }) => {
                   >
                     {total}
                   </Span>{" "}
-                  tracked clicks in {periodText}.
+                  śledzono kliknięcia w okresie {periodText}.
                 </H2>
                 <Text fontSize={[13, 14]} color={Colors.StatsLastUpdateText}>
-                  Last update in{" "}
+                  Ostatnia aktualizacja{" "}
                   {formatDate(new Date(data.updatedAt), "hh:mm aa")}
                 </Text>
                 <Flex width={1} mt={4}>
@@ -156,13 +156,13 @@ const StatsPage: NextPage<Props> = ({ id }) => {
                     <Flex width={1}>
                       <Col flex="1 1 0">
                         <H2 mb={3} light>
-                          Referrals.
+                          Odwołania.
                         </H2>
                         <Pie data={stats.stats.referrer} />
                       </Col>
                       <Col flex="1 1 0">
                         <H2 mb={3} light>
-                          Browsers.
+                          Przeglądarka.
                         </H2>
                         <Bar data={stats.stats.browser} />
                       </Col>
@@ -171,7 +171,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
                     <Flex width={1}>
                       <Col flex="1 1 0">
                         <H2 mb={3} light>
-                          Country.
+                          Państwo.
                         </H2>
                         <Map data={stats.stats.country} />
                       </Col>
@@ -191,7 +191,7 @@ const StatsPage: NextPage<Props> = ({ id }) => {
                 <ALink href="/" title="Back to homepage" forButton>
                   <Button>
                     <Icon name="arrowLeft" stroke="white" mr={2} />
-                    Back to homepage
+                    Wróc do strony głównej
                   </Button>
                 </ALink>
               </Link>

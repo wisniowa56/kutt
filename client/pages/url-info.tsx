@@ -12,13 +12,13 @@ const UrlInfoPage = () => {
     <AppWrapper>
       {!query.target ? (
         <H2 my={4} light>
-          404 | Link could not be found.
+          404 | Nie znaleziono linku.
         </H2>
       ) : (
         <>
           <Col flex="1 1 100%" alignItems="center">
             <H2 my={3} light>
-              Target:
+              Adres docelowy:
             </H2>
             <H4 bold>{query.target}</H4>
           </Col>
