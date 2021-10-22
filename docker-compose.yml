@@ -9,7 +9,7 @@ services:
     depends_on:
       - redis
     ports:
-      - "10000:10000"
+      - "10000:3000"
     env_file:
       - .env
     environment:
