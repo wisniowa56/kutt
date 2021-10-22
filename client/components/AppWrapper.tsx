@@ -21,7 +21,7 @@ const Wrapper = styled(Flex)`
   }
 `;
 
-const AppWrapper = ({ children }: { children: any }) => {
+const AppWrapper = ({ children }: { children: any; }) => {
   const isAuthenticated = useStoreState(s => s.auth.isAuthenticated);
   const logout = useStoreActions(s => s.auth.logout);
   const fetched = useStoreState(s => s.settings.fetched);
