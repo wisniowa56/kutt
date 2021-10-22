@@ -112,7 +112,7 @@ const Header: FC = () => {
             }}
           >
             <img src="/images/logo.png" alt="" />
-            {publicRuntimeConfig.SITE_NAME}
+            Skracacz Linków SU
           </a>
         </LogoImage>
         {!isMobile && (
@@ -125,7 +125,7 @@ const Header: FC = () => {
             m={0}
             p={0}
           >
-            <Li>
+            {/* <Li>
               <ALink
                 href="//github.com/thedevs-network/kutt"
                 target="_blank"
@@ -142,7 +142,7 @@ const Header: FC = () => {
                   Zgłoś
                 </ALink>
               </Link>
-            </Li>
+            </Li> */}
           </Flex>
         )}
       </Flex>
@@ -153,7 +153,7 @@ const Header: FC = () => {
         as="ul"
         style={{ listStyle: "none" }}
       >
-        <Li>
+        {/* <Li>
           <Flex display={["flex", "none"]}>
             <Link href="/report">
               <ALink href="/report" title="Report" fontSize={[14, 16]}>
@@ -161,7 +161,7 @@ const Header: FC = () => {
               </ALink>
             </Link>
           </Flex>
-        </Li>
+        </Li> */}
         {logout}
         {settings}
         {login}

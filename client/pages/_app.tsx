@@ -7,7 +7,7 @@ import cookie from "js-cookie";
 import Head from "next/head";
 import React from "react";
 
-import { initGA, logPageView , initSentry } from "../helpers/analytics";
+import { initGA, logPageView, initSentry } from "../helpers/analytics";
 import { initializeStore } from "../store";
 import { TokenPayload } from "../types";
 
@@ -82,7 +82,7 @@ class MyApp extends App<any> {
       <>
         <Head>
           <title>
-            {publicRuntimeConfig.SITE_NAME} | Modern Open Source URL shortener.
+            Skracacz Linków SU
           </title>
         </Head>
         <StoreProvider store={this.store}>
