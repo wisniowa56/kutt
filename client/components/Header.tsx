@@ -58,12 +58,12 @@ const Header: FC = () => {
       <Link href="/login">
         <ALink
           href="/login"
-          title={!DISALLOW_REGISTRATION ? "zaloguj / zarejestruj" : "zaloguj"}
+          title="zaloguj"
           forButton
           color="red"
         >
           <Button height={[32, 40]} color="red">
-            {!DISALLOW_REGISTRATION ? "Zaloguj / Zarejestruj" : "Zaloguj"}
+            Zaloguj
           </Button>
         </ALink>
       </Link>

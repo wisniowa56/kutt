@@ -100,17 +100,17 @@ const LoginPage = () => {
       <ColCenterV maxWidth="100%" px={3} flex="0 0 auto" mt={4}>
         {verifying ? (
           <H2 textAlign="center" light>
-            A verification email has been sent to{" "}
+            Email weryfikacyjny został wysłany do{" "}
             <Email>{formState.values.email}</Email>.
           </H2>
         ) : (
           <LoginForm id="login-form" onSubmit={onSubmit("login")}>
             <Text {...label("email")} as="label" mb={2} bold>
-              Email address:
+              Adres Email:
             </Text>
             <TextInput
               {...email("email")}
-              placeholder="Email address..."
+              placeholder="Adres email..."
               height={[56, 64, 72]}
               fontSize={[15, 16]}
               px={[4, 40]}
@@ -120,11 +120,11 @@ const LoginPage = () => {
               autoFocus
             />
             <Text {...label("password")} as="label" mb={2} bold>
-              Password{!DISALLOW_REGISTRATION ? " (min chars: 8)" : ""}:
+              Hasło:
             </Text>
             <TextInput
               {...password("password")}
-              placeholder="Password..."
+              placeholder="Hasło..."
               px={[4, 40]}
               height={[56, 64, 72]}
               fontSize={[15, 16]}
@@ -138,6 +138,7 @@ const LoginPage = () => {
                 mr={!DISALLOW_REGISTRATION ? ["8px", 16] : 0}
                 height={[44, 56]}
                 onClick={onSubmit("login")}
+                color="red"
               >
                 <Icon
                   name={loading.login ? "spinner" : "login"}
@@ -146,7 +147,7 @@ const LoginPage = () => {
                 />
                 Log in
               </Button>
-              {!DISALLOW_REGISTRATION && (
+              {/* {!DISALLOW_REGISTRATION && (
                 <Button
                   flex="1 1 auto"
                   ml={["8px", 16]}
@@ -161,7 +162,7 @@ const LoginPage = () => {
                   />
                   Sign up
                 </Button>
-              )}
+              )} */}
             </Flex>
             <Link href="/reset-password">
               <ALink
@@ -171,7 +172,7 @@ const LoginPage = () => {
                 alignSelf="flex-start"
                 my={16}
               >
-                Forgot your password?
+                Zapomniałeś hasła?
               </ALink>
             </Link>
             <Text color="red" mt={1} normal>

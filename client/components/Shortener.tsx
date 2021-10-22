@@ -229,12 +229,6 @@ const Shortener = () => {
         {...raw({
           name: "showAdvanced",
           onChange: e => {
-            if (!isAuthenticated) {
-              setMessage(
-                "Musisz się zalogować by uzyskać dostęp do zaawansowanych opcji."
-              );
-              return false;
-            }
             return !formState.values.showAdvanced;
           }
         })}
@@ -246,7 +240,7 @@ const Shortener = () => {
       {formState.values.showAdvanced && (
         <div>
           <Flex mt={4} flexDirection={["column", "row"]}>
-            <Col mb={[3, 0]}>
+            {isAuthenticated && <Col mb={[3, 0]}>
               <Text
                 as="label"
                 {...label("domain")}
@@ -272,7 +266,7 @@ const Shortener = () => {
                   }))
                 ]}
               />
-            </Col>
+            </Col>}
             <Col mb={[3, 0]} ml={[0, 24]}>
               <Text
                 as="label"
